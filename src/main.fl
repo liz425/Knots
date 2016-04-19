@@ -1,0 +1,151 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0110 
+header_name {.h} 
+code_name {.cxx}
+decl {\#include <FL/Fl_File_Chooser.H>} {public
+} 
+
+Function {timeout_cb()} {open private return_type void
+} {
+  code {glWindow->rotateY++;
+	if (glWindow->rotateY >= 360)
+	{
+		glWindow->rotateY -= 360;
+	}
+	
+	glWindow->redraw();
+Fl::repeat_timeout(TIMESTEP, (Fl_Timeout_Handler)timeout_cb);} {}
+} 
+
+Function {} {open
+} {
+  Fl_Window {} {
+    label Weaving open
+    xywh {446 134 1235 799} type Double visible
+  } {
+    Fl_Box glWindow {
+      label label
+      xywh {0 0 1000 800} box PLASTIC_DOWN_FRAME
+      code0 {\#include "Gl_Window.h"}
+      class Gl_Window
+    }
+    Fl_Button {} {
+      label {Select Object}
+      callback {glWindow->mesh->LoadObjFile(fl_file_chooser("Choose an Object File", "*.obj", NULL));
+//disSlider->value(0);
+glWindow->isNewWeaving = true;
+glWindow->isNewBaseMesh = true;
+glWindow->redraw();}
+      xywh {1005 15 95 40} box GTK_UP_BOX down_box GTK_DOWN_BOX
+    }
+    Fl_Light_Button {} {
+      label Background
+      callback {if (o->value())
+	  glClearColor(1.0, 1.0, 1.0, 1.0);
+  else
+	  glClearColor(0.0, 0.0, 0.0, 0.0);
+  
+  glWindow->redraw();}
+      xywh {1005 80 95 40} box GTK_UP_BOX down_box GTK_DOWN_BOX value 1 selection_color 1
+    }
+    Fl_Light_Button {} {
+      label {Base Mesh}
+      callback {glWindow->isBaseMesh = bool(o->value());
+glWindow->redraw();}
+      xywh {1005 130 95 40} box GTK_UP_BOX down_box GTK_DOWN_BOX value 1 selection_color 1
+    }
+    Fl_Button {} {
+      label Texture
+      callback {glWindow->setTexture( fl_file_chooser("Choose an Texture File", NULL, NULL), 1 ); // absolute value
+glWindow->redraw();}
+      xywh {1010 180 85 40} box GTK_UP_BOX down_box GTK_DOWN_BOX
+    }
+    Fl_Button {} {
+      label Environment
+      callback {glWindow->setTexture( fl_file_chooser("Choose an Texture File", NULL, NULL), 0 ); // absolute value
+glWindow->redraw();}
+      xywh {1110 180 85 40} box GTK_UP_BOX down_box GTK_DOWN_BOX
+    }
+    Fl_Light_Button {} {
+      label {   @+6>}
+      callback {if(o->value()) // down - begin to play
+    {
+        Fl::add_timeout(TIMESTEP, (Fl_Timeout_Handler)timeout_cb);
+        o->label("   @+3||"); // change to ||
+    }
+    else // up - begin to pause
+    {
+        Fl::remove_timeout((Fl_Timeout_Handler)timeout_cb);
+        o->label("   @+6>"); // change to |>
+    }}
+      xywh {1010 225 85 40} box GTK_UP_BOX down_box GTK_DOWN_BOX selection_color 1
+    }
+    Fl_Value_Slider {} {
+      label Displace
+      callback {glWindow->mesh->SetDiplaceFactor(o->value());
+glWindow->isNewWeaving = true;
+glWindow->redraw();}
+      xywh {1022 354 50 205} type {Vert Knob} box GTK_DOWN_BOX color 7 selection_color 1 align 1 value 0.05 textsize 14
+    }
+    Fl_Value_Slider {} {
+      label Width
+      callback {glWindow->mesh->SetWidth(o->value());
+glWindow->isNewWeaving = true;
+glWindow->redraw();}
+      xywh {1025 591 50 205} type {Vert Knob} box GTK_DOWN_BOX color 7 selection_color 1 align 1 maximum 1.5 step 0.05 value 0.5 textsize 14
+    }
+    Fl_Value_Slider {} {
+      label Curvature
+      callback {glWindow->mesh->SetCurvature(o->value());
+glWindow->isNewWeaving = true;
+glWindow->redraw();}
+      xywh {1125 593 50 205} type {Vert Knob} box GTK_DOWN_BOX color 7 selection_color 1 align 1 maximum 2 step 0.05 value 0.5 textsize 14
+    }
+    Fl_Value_Slider {} {
+      label center
+      callback {glWindow->mesh->SetCenterWeight(o->value());
+glWindow->isNewWeaving = true;
+glWindow->redraw();}
+      xywh {1140 30 35 145} type {Vert Knob} box GTK_DOWN_BOX color 7 selection_color 1 align 1 minimum 0.005 step 0.05 value 1 textsize 14
+    }
+    Fl_Group {} {open
+      xywh {1100 251 116 304} box EMBOSSED_FRAME color 6
+    } {
+      Fl_Button {} {
+        label flatten
+        callback {glWindow->mesh->Flatten();
+glWindow->isNewBaseMesh = true;
+glWindow->redraw();}
+        xywh {1110 445 85 40} box GTK_UP_BOX down_box GTK_DOWN_BOX
+      }
+      Fl_Button {} {
+        label write_file
+        callback {glWindow->mesh->Placing2D();
+glWindow->mesh->OutputVertexPaperStrips();
+glWindow->isNewBaseMesh = true;
+glWindow->redraw();}
+        xywh {1110 495 85 40} box GTK_UP_BOX down_box GTK_DOWN_BOX
+      }
+      Fl_Value_Input {} {
+        label {hole radius}
+        callback {glWindow->mesh->holeRadius = o->value();}
+        xywh {1113 406 75 24} align 1 minimum 0.3 step 0.05 value 0.05
+      }
+      Fl_Value_Input {} {
+        label {paper width}
+        callback {glWindow->mesh->paperWidth = o->value();}
+        xywh {1112 280 75 24} align 1 minimum 20 maximum 128 step 0.5 value 16.5
+      }
+      Fl_Value_Input {} {
+        label {paper height}
+        callback {glWindow->mesh->paperHeight = o->value();}
+        xywh {1112 322 75 24} align 1 minimum 10 maximum 128 step 0.5 value 22
+      }
+      Fl_Value_Input {} {
+        label {piece size}
+        callback {glWindow->mesh->boundingBox_size = o->value();} selected
+        xywh {1115 361 75 24} align 1 minimum 5 maximum 12 step 0.1 value 5
+      }
+    }
+  }
+} 

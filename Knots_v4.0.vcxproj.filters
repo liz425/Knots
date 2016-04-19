@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Header Files\extra">
+      <UniqueIdentifier>{c26e7edb-71f9-414e-820d-c23f366bb7e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\extra">
+      <UniqueIdentifier>{f926f698-a958-4f05-99ec-03f37ade8871}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Texture_Phong.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="src\Texture_Phong.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ColorSpace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gl_Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glErrorUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLSL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\loadImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Output.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Text_File.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WeavingObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\simple_remeshing.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fenghui_Zhang_core\edge.cc">
+      <Filter>Source Files\extra</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fenghui_Zhang_core\face.cc">
+      <Filter>Source Files\extra</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fenghui_Zhang_core\id_generator.cc">
+      <Filter>Source Files\extra</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fenghui_Zhang_core\identifiable.cc">
+      <Filter>Source Files\extra</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fenghui_Zhang_core\object_store.cc">
+      <Filter>Source Files\extra</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fenghui_Zhang_core\topology_object.cc">
+      <Filter>Source Files\extra</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fenghui_Zhang_core\vertex.cc">
+      <Filter>Source Files\extra</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ColorSpace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cyMatrix2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cyMatrix3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cyMatrix4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cyPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gl_window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glErrorUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLSL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\loadImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Output.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simple_remeshing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Text_File.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WeavingObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fenghui_Zhang_core\edge.h">
+      <Filter>Header Files\extra</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fenghui_Zhang_core\face.h">
+      <Filter>Header Files\extra</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fenghui_Zhang_core\id_generator.h">
+      <Filter>Header Files\extra</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fenghui_Zhang_core\identifiable.h">
+      <Filter>Header Files\extra</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fenghui_Zhang_core\logging.h">
+      <Filter>Header Files\extra</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fenghui_Zhang_core\object_store.h">
+      <Filter>Header Files\extra</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fenghui_Zhang_core\renderable_object.h">
+      <Filter>Header Files\extra</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fenghui_Zhang_core\topology_object.h">
+      <Filter>Header Files\extra</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Fenghui_Zhang_core\vertex.h">
+      <Filter>Header Files\extra</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

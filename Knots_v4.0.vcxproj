@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D40907E5-4587-4974-A014-E25FE84FA0E9}</ProjectGuid>
+    <RootNamespace>Knots_v40</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)include\;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)tmp\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir)include\;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>fltk.lib;fltkgl.lib;fltkimages.lib;fltkjpeg.lib;fltkpng.lib;fltkz.lib;wsock32.lib;comctl32.lib;opengl32.lib;glu32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>fltk.lib;fltkgl.lib;fltkimages.lib;fltkjpeg.lib;fltkpng.lib;fltkz.lib;wsock32.lib;comctl32.lib;opengl32.lib;glu32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="src\Texture_Phong.frag" />
+    <None Include="src\Texture_Phong.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\ColorSpace.cpp" />
+    <ClCompile Include="src\Fenghui_Zhang_core\edge.cc" />
+    <ClCompile Include="src\Fenghui_Zhang_core\face.cc" />
+    <ClCompile Include="src\Fenghui_Zhang_core\identifiable.cc" />
+    <ClCompile Include="src\Fenghui_Zhang_core\id_generator.cc" />
+    <ClCompile Include="src\Fenghui_Zhang_core\object_store.cc" />
+    <ClCompile Include="src\Fenghui_Zhang_core\topology_object.cc" />
+    <ClCompile Include="src\Fenghui_Zhang_core\vertex.cc" />
+    <ClCompile Include="src\glErrorUtil.cpp" />
+    <ClCompile Include="src\GLSL.cpp" />
+    <ClCompile Include="src\Gl_Window.cpp" />
+    <ClCompile Include="src\loadImage.cpp" />
+    <ClCompile Include="src\main.cxx" />
+    <ClCompile Include="src\Output.cpp" />
+    <ClCompile Include="src\simple_remeshing.cc" />
+    <ClCompile Include="src\Text_File.cpp" />
+    <ClCompile Include="src\WeavingObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\camera.h" />
+    <ClInclude Include="src\ColorSpace.h" />
+    <ClInclude Include="src\cyMatrix2.h" />
+    <ClInclude Include="src\cyMatrix3.h" />
+    <ClInclude Include="src\cyMatrix4.h" />
+    <ClInclude Include="src\cyPoint.h" />
+    <ClInclude Include="src\Fenghui_Zhang_core\edge.h" />
+    <ClInclude Include="src\Fenghui_Zhang_core\face.h" />
+    <ClInclude Include="src\Fenghui_Zhang_core\identifiable.h" />
+    <ClInclude Include="src\Fenghui_Zhang_core\id_generator.h" />
+    <ClInclude Include="src\Fenghui_Zhang_core\logging.h" />
+    <ClInclude Include="src\Fenghui_Zhang_core\object_store.h" />
+    <ClInclude Include="src\Fenghui_Zhang_core\renderable_object.h" />
+    <ClInclude Include="src\Fenghui_Zhang_core\topology_object.h" />
+    <ClInclude Include="src\Fenghui_Zhang_core\vertex.h" />
+    <ClInclude Include="src\glErrorUtil.h" />
+    <ClInclude Include="src\GLSL.h" />
+    <ClInclude Include="src\Gl_window.h" />
+    <ClInclude Include="src\loadImage.h" />
+    <ClInclude Include="src\main.h" />
+    <ClInclude Include="src\Output.h" />
+    <ClInclude Include="src\simple_remeshing.h" />
+    <ClInclude Include="src\Text_File.h" />
+    <ClInclude Include="src\WeavingObject.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
