@@ -103,8 +103,12 @@ bool Gl_Window::init()
 // 	setTexture("D:/Images/jpg/lines.bmp", 1);	// object texture - 1
 
 	// generate display list after the OpenGL context is created
-	displayList_Weaving = glGenLists(1);
-	displayList_BaseMesh = glGenLists(1);
+
+	// BUG FIXED by Z.L.: according to https://www.opengl.org/discussion_boards/showthread.php/169001-glCallList-not-working 
+	// In order to avoid list definition before OpenGL is fully initialized, 
+	// we should move glGenLists(1) into the draw function, right before glNewList(), 
+	//displayList_Weaving = glGenLists(1);
+	//displayList_BaseMesh = glGenLists(1);
 
 	mesh->init();
 
@@ -272,6 +276,7 @@ void Gl_Window::draw() {
 			if ( glIsList(displayList_BaseMesh) ) {
 				glDeleteLists(displayList_BaseMesh, 1);
 			}
+			displayList_BaseMesh = glGenLists(1);
 			glNewList(displayList_BaseMesh, GL_COMPILE_AND_EXECUTE);
 			mesh->DrawBaseMesh();
 			glEndList();
@@ -286,11 +291,13 @@ void Gl_Window::draw() {
 		// additional clipping planes
 	glEnable(GL_LIGHTING);
 	glEnable(GL_TEXTURE_2D);
+	
 	if ( isNewWeaving ) {
 		isNewWeaving = false;	// flip flag
 		if ( glIsList(displayList_Weaving) ) {
 			glDeleteLists(displayList_Weaving, 1);
 		}
+		displayList_Weaving = glGenLists(1);
 		glNewList(displayList_Weaving, GL_COMPILE_AND_EXECUTE);
 		long temp = 0;
 		FILE* tempFile = NULL;
@@ -430,12 +437,14 @@ int Gl_Window::handle(int event)
 			return Fl_Widget::handle(event);	
 		}
 	} 
-	else	// mouse & others
-	{if (camera_->HandleMouseEvent(event)) {
+	else{	// mouse & others
+		if (camera_->HandleMouseEvent(event)) {
+			//std::cout << "HandleMouseEvent executed!!!" << std::endl;
 			redraw();
 			return 1;
 		}
 		else {
+			//std::cout << "FL_Widget::handle executed!!!" << std::endl;
 			return Fl_Widget::handle(event);
 		}
 	}	

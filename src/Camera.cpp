@@ -309,6 +309,8 @@ int Camera::HandleMouseEvent(int event) {
 	cyPoint3f MousePos, dir;
 	cyPoint3f WindowX, WindowY, WindowZ;
 
+	//std::cout << event << std::endl;
+
 	switch(event) {
 		case FL_PUSH:
 			// set the new mouse state
@@ -318,10 +320,12 @@ int Camera::HandleMouseEvent(int event) {
 			// alt key and mouse button have been pressed, camera will move
 			switch (Fl::event_button()) {
 				case FL_LEFT_MOUSE:	// rotating camera
+					//std::cout << "left mouse push captured." << std::endl;
 					CameraMode = ROTATE;
 					break;
 
 				case FL_MIDDLE_MOUSE:	// translating camera:
+					//std::cout << "middle mouse push captured." << std::endl;
 					CameraMode = TRANSLATE;
 					// get the modelview and projection matrices for projection
 					// of the mouse's cursor into 3D
@@ -349,6 +353,7 @@ int Camera::HandleMouseEvent(int event) {
 					break;
 
 				case FL_RIGHT_MOUSE:	// zooming camera:
+					//std::cout << "right mouse push captured." << std::endl;
 					CameraMode = ZOOM;
 					break;
 			}			  
